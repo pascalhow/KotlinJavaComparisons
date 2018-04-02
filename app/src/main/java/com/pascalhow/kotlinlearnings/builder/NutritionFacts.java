@@ -13,7 +13,7 @@ public class NutritionFacts {
         servingSize = builder.servingSize;
         servings = builder.servings;
         calories = builder.calories;
-        fat = builder.calories;
+        fat = builder.fat;
         carbohydrate = builder.carbohydrate;
         sodium = builder.sodium;
     }

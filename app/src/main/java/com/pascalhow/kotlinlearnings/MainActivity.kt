@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         val sandwichSalami = NutritionFacts.Builder(6, 1)
                 .setCalories(370)
                 .setSodium(0)
-                .setFat(17)
+                .setFat(15)
                 .build()
 
         println("----- Nutritional Facts -----")
