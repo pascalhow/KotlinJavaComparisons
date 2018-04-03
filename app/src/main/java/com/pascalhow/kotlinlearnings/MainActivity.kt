@@ -1,14 +1,24 @@
+@file:Suppress("UNUSED_VARIABLE")
+
 package com.pascalhow.kotlinlearnings
 
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import com.pascalhow.kotlinlearnings.builder.NutritionFacts
 import com.pascalhow.kotlinlearnings.builder.NutritionFactsKt
+import com.pascalhow.kotlinlearnings.cases.Vehicle
+import com.pascalhow.kotlinlearnings.cases.VehicleKt
+import com.pascalhow.kotlinlearnings.cases.returnTypeName
 import com.pascalhow.kotlinlearnings.classes.Dog
 import com.pascalhow.kotlinlearnings.classes.DogKt
+import com.pascalhow.kotlinlearnings.operators.Square
+import com.pascalhow.kotlinlearnings.operators.SquareKt
 import com.pascalhow.kotlinlearnings.extensions.PreferencesHelper
 import com.pascalhow.kotlinlearnings.extensions.edit
+import com.pascalhow.kotlinlearnings.lambdas.ButtonClick
+import com.pascalhow.kotlinlearnings.lambdas.ButtonClickKt
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +31,12 @@ class MainActivity : AppCompatActivity() {
         savePreferences()
 
         nutritionalFacts()
+
+        buttonClick()
+
+        cases()
+
+        squares()
     }
 
     private fun dogLaunch() {
@@ -67,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                 .setCalories(370)
                 .setSodium(0)
                 .setFat(15)
+                .setCarbohydrate(150)
                 .build()
 
         println("----- Nutritional Facts -----")
@@ -74,4 +91,49 @@ class MainActivity : AppCompatActivity() {
         println(sandwichSalami.toString())
     }
 
+    private fun buttonClick() {
+        val buttonClick = ButtonClick(Button(this))
+        val buttonClickKt = ButtonClickKt(Button(this))
+        println("----- Button Click -----")
+    }
+
+    private fun cases() {
+        val cases = Vehicle.Cases()
+        println(cases.returnTypeName(Vehicle.Car()))
+        println(cases.returnTypeName(Vehicle.Bus()))
+        println(cases.returnTypeName(Vehicle.Motorcycle()))
+
+        println(returnTypeName(VehicleKt.CarKt()))
+        println(returnTypeName(VehicleKt.BusKt()))
+        println(returnTypeName(VehicleKt.MotorcycleKt()))
+
+        println("----- Cases -----")
+    }
+
+    private fun squares() {
+        val square1 = Square(10, 20)
+        println(square1.width)
+        println(square1.height)
+        val square2 = Square(20, 30)
+        println(square2.width)
+        println(square2.height)
+
+        println(square1.sum(square2))
+        println(square1.minus(square2))
+        println(square1.times(square2))
+
+        val squareKt1 = SquareKt(10, 20)
+        println(squareKt1.width)
+        println(squareKt1.height)
+
+        val squareKt2 = SquareKt(20, 30)
+        println(squareKt2.width)
+        println(squareKt2.height)
+
+        println(squareKt1 + squareKt2)
+        println(squareKt1 - squareKt2)
+        println(squareKt1 * squareKt2)
+
+        println("----- Squares -----")
+    }
 }
